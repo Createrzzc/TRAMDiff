@@ -1,0 +1,1 @@
+/home/ac/data/2023/zhanzechao/ours/detectron2/pretrain/R_101_FPN_DL_WC2M_s1x.pkl

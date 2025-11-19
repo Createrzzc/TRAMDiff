@@ -1,0 +1,45 @@
+mask_config:
+  model:
+    target: ldm.modules.diffusionmodules.maskmodel.MaskUNetModel
+    params:
+      image_size: 64 # unused
+      in_channels: 4
+      out_channels: 1
+      model_channels: 160
+      attention_resolutions: [] #[ 4, 2, 1 ]
+      num_res_blocks: 2
+      channel_mult: [ 1, 2, 4, 4 ]
+      num_heads: 8
+      use_spatial_transformer: True
+      transformer_depth: 1
+      context_dim: 768
+      use_checkpoint: True
+      legacy: False
+  checkpoints: checkpoints/maskunet.ckpt
+  cond_stage_config:
+    target: ldm.modules.encoders.modules.FrozenCLIPEmbedder
+
+seg_config:
+  model:
+    target: ldm.modules.diffusionmodules.maskmodel.MaskUNetModel
+    params:
+      image_size: 64 # unused
+      in_channels: 3
+      out_channels: 1
+      model_channels: 160
+      attention_resolutions: [] #[ 4, 2, 1 ]
+      num_res_blocks: 2
+      channel_mult: [ 1, 2, 4, 4 ]
+      num_heads: 8
+      use_spatial_transformer: True
+      transformer_depth: 1
+      context_dim: 768
+      use_checkpoint: True
+      legacy: False
+  checkpoints: checkpoints/segunet.ckpt
+  cond_stage_config:
+    target: ldm.modules.encoders.modules.FrozenCLIPEmbedder
+
+
+
+
